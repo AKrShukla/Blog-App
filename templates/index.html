@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+        <h3>Welcome to My Blog</h3>
+        <p>Lorem ipsum dolor sit amet, nec noster comprehensam in, mel ut erat consetetur. Usu debet eirmod ea. Dicant accumsan democritum pro in. Consetetur percipitur mea in. Fugit eleifend dissentias no nec.
+
+                Nec an detraxit theophrastus, an pri sumo torquatos, oratio dicunt phaedrum eu duo. Qui dolore vivendo ea, habemus singulis pro cu. Mei nihil virtute no. In per solum falli delectus, vivendum atomorum neglegentur nam in. Dicant perfecto vis an, aperiam qualisque no sed.</p>
+</div>
+
+
+<p>
+        {% if request.user.is_authenticated %}
+                Login, {{request.user.username}}
+        {% else %}
+                Giriş Yapılmamış
+        {% endif %}
+
+</p>
+<div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">  
+                {% if articles %}
+                {% for article in articles %}
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        {% if article.article_image %}
+                        <a href="{% url 'article:detail' article.id %}">
+                        <img class="img-fluid rounded card-img-top" src="{{article.article_image.url}}"></a>
+                        {% endif %}
+                        <div class="card-body">
+                        <p><a href="{% url 'article:detail' article.id %}"><h4 class="mt-4">{{article.title}}</h4></a></p>
+                        <p class="lead card-text">
+                                <div class="container">
+                                {{article.content|safe|truncatechars:30}}</div>
+                        </p>
+                        <a style ="float : right;" href="{% url 'article:detail' article.id %}" class ="btn btn-danger">Read more</a>  
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div></div></div>
+
+{% endblock body %}
+
