@@ -12,9 +12,9 @@
 
 <p>
         {% if request.user.is_authenticated %}
-                Login, {{request.user.username}}
+                Logged in user is, {{request.user.username}}
         {% else %}
-                Giriş Yapılmamış
+                Not Logged in
         {% endif %}
 
 </p>
