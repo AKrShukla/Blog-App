@@ -2,7 +2,7 @@
 
 Clone This Project (Make Sure You Have Git Installed)
 ```
-https://github.com/mustafamuratcoskun/DjangoBlogApp.git
+https://github.com/AKrShukla/Blog-App.git
 ```
 Install Dependencies 
 
