@@ -1,15 +1,6 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
-<div class="jumbotron text-center">
-        <h3>Welcome to My Blog</h3>
-        <p>Lorem ipsum dolor sit amet, nec noster comprehensam in, mel ut erat consetetur. Usu debet eirmod ea. Dicant accumsan democritum pro in. Consetetur percipitur mea in. Fugit eleifend dissentias no nec.
-
-                Nec an detraxit theophrastus, an pri sumo torquatos, oratio dicunt phaedrum eu duo. Qui dolore vivendo ea, habemus singulis pro cu. Mei nihil virtute no. In per solum falli delectus, vivendum atomorum neglegentur nam in. Dicant perfecto vis an, aperiam qualisque no sed.</p>
-</div>
-
-
 <p>
         {% if request.user.is_authenticated %}
                 Logged in user is, {{request.user.username}}

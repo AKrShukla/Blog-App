@@ -1,68 +1,282 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fonts/css/all.css' %}">
-    <style>#ntext{
-            color: #ffffff;
-             }
-        .navbar-custom {
-            background-color: #006064;
-        }
-        .jumbotron-custom {
-            color : #006064;
-            background-color: #26a69a ;
-        }
-        .bdy {
-            color: #004d40;
-            background-color:#0097a7;
-        }
-        .icon-link {
-            text-decoration: none;
-            color: inherit;
-        }
-    </style>
-    <title>Blog App</title>
-</head>
-<body class="bdy">  
-        {% include "includes/navbar.html" %}
-
-        
-
-        <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">
-                
-            {% if messages %}
-                
-                    {% for message in messages %}
-                    {% if message.tags == "info" %}
-                    <div class="alert alert-danger">{{ message }}</div>
-                    {% else %}
-                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-
-                    {% endif %}
-
-
-                    {% endfor %}
-                
-                {% endif %}
-            <div class="jumbotron">
-            {% block body %}
+    <head>
+        <title>Blog App</title>
             
-            {% endblock body %}
-        </div>
-        </div>
-    
+            <!-- Meta tag Keywords -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta charset="utf-8">
+            <meta name="keywords" content="Success path Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+            Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+            <script type="application/x-javascript">
+                addEventListener("load", function () {
+                    setTimeout(hideURLbar, 0);
+                }, false);
+                function hideURLbar() {
+                    window.scrollTo(0, 1);
+                }
+            </script>
+            <!--// Meta tag Keywords -->
+        
+            <!-- css files -->
+            <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}"> <!-- Bootstrap-Core-CSS -->
+            <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css" media="all" /> <!-- Style-CSS --> 
+            <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.css' %}"> <!-- Font-Awesome-Icons-CSS -->
+            <!-- //css files -->
+            <link href="{% static 'assets/css/easy-responsive-tabs.css' %}" rel='stylesheet' type='text/css'/>
+            <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}" /><!-- Calendar -->
+            <!-- testimonials css -->
+            <link rel="stylesheet" href="{% static 'assets/css/flexslider.css' %}" type="text/css" media="screen" property="" /><!-- flexslider css -->
+            <!-- //testimonials css -->
+            <style>
+            .navbar-custom {
+                background-color: #006064;
+            }
+            .icon-link {
+                text-decoration: none;
+                color: inherit;
+            }
+            </style>
+            <!-- web-fonts -->
+            <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+            <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+            <!-- //web-fonts -->
+</head>
+    <body>  
+        {% include "includes/navbar.html" %}
+        {% if request.path == '/' %}
+            <!--Slider-->
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides callbacks callbacks1" id="slider4">
+                        <li>
+                            <div class="slider-img1">
+                                <div class="dot">
+                                    <div class="container">
+                                        <div class="slider_banner_info_w3ls">
+                                            <h1 class="text-uppercase mb-3">Welcome to the Blog App</h1>
+                                            <p>Etiam vitae augue odio. Ut laoreet ipsum vel ultrices viverra. Donec nisl dolor, mollis vel libero id, 
+                                                    tempor cursus lectus. Vestibulum eu ligula et pharetra efficitur. Maecenas eleifend.</p>
 
-      <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="{% static 'js/bootstrap.js'%}"></script>
-      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-  
+                                            <a href="{% url 'user:register'  %}" class="read" role="button">Register Yourself</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider-img2">
+                                <div class="dot">
+                                    <div class="container">
+                                        <div class="slider_banner_info_w3ls">
+                                            <h4 class="text-uppercase mb-3">Create and Manage Articles</h4>
+                                            <p>Etiam vitae augue odio. Ut laoreet ipsum vel ultrices viverra. Donec nisl dolor, mollis vel libero id, 
+                                                    tempor cursus lectus. Vestibulum eu ligula et pharetra efficitur. Maecenas eleifend.</p>
+                                            {% if request.user.is_authenticated %}
+                                                <a href="{% url 'article:dashboard'  %}" class="read" role="button">Go to your Dashboard</a>
+                                            {% else %}
+                                                <a href="{% url 'user:login'  %}" class="read" role="button">Login</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider-img3">
+                                <div class="dot">
+                                    <div class="container">
+                                        <div class="slider_banner_info_w3ls">
+                                            <h4 class="text-uppercase mb-3">Read Articles as you Write them</h4>
+                                            <p>Etiam vitae augue odio. Ut laoreet ipsum vel ultrices viverra. Donec nisl dolor, mollis vel libero id, 
+                                                    tempor cursus lectus. Vestibulum eu ligula et pharetra efficitur. Maecenas eleifend.</p>
+
+                                            <a href="{% url 'article:articles' %}" class="read" role="button">All Articles</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider-img4">
+                                <div class="dot">
+                                    <div class="container">
+                                        <div class="slider_banner_info_w3ls">
+                                            <h4 class="text-uppercase mb-3">Take a minute to know us</h4>
+                                            <p>Etiam vitae augue odio. Ut laoreet ipsum vel ultrices viverra. Donec nisl dolor, mollis vel libero id, 
+                                                    tempor cursus lectus. Vestibulum eu ligula et pharetra efficitur. Maecenas eleifend.</p>
+
+                                            <a href="{% url 'about'  %}" class="read" role="button">About Us</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="clearfix"></div>
+                    </ul>
+            </div>
+
+            <!--//Slider-->
+        {% else %}
+            <section class="innerpage_banner py-5">
+                <div class="dot1">
+                </div>
+            </section>
+        {% endif %}
+        <div class = "container">        
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == "info" %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% else %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% block body %} 
+        {% endblock body %}
     </body>
 
     {% include "includes/footer.html" %}
+    <!-- Vertically centered Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title text-uppercase text-center" id="exampleModalLongTitle"> Success path</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <img src="images/ban11.jpg" class="img-fluid mb-3" alt="Modal Image" />
+            Vivamus eget est in odio tempor interdum. Mauris maximus fermentum arcu, ac finibus ante. Sed mattis risus at ipsum elementum, ut auctor turpis cursus. Sed sed odio pharetra, aliquet velit cursus, vehicula enim. Mauris porta aliquet magna, eget laoreet ligula.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- js-scripts -->		
+
+	<!-- js -->
+	<script type="text/javascript" src="{% static 'assets/js/jquery-2.1.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/bootstrap.js' %}"></script> <!-- Necessary-JavaScript-File-For-Bootstrap --> 
+	<!-- //js -->	
+	
+	<!-- Banner Responsive slider -->
+	<script src="{% static 'assets/js/responsiveslides.min.js' %}"></script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: false,
+				nav: true,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+	<!-- // Banner Responsive slider -->
+	<!-- script for responsive tabs -->						
+    <script src="{% static 'assets/js/easy-responsive-tabs.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function(event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+            });
+        });
+    </script>
+    <!--script for responsive tabs -->
+    <!-- Calendar -->
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+        <script>
+            $(function() {
+                $( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+            });
+        </script>
+    <!-- //Calendar -->
+    <!-- stats -->
+	<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.countup.js' %}"></script>
+	<script>
+		$('.counter').countUp();
+	</script>
+	<!-- //stats -->
+	<!-- flexSlider --><!-- for testimonials -->
+	<script defer src="{% static 'assets/js/jquery.flexslider.js' %}"></script>
+	<script type="text/javascript">
+		$(window).load(function(){
+		  $('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			  $('body').removeClass('loading');
+			}
+		  });
+		});
+	</script>
+	<!-- //flexSlider --><!-- for testimonials -->
+
+	<!-- start-smoth-scrolling -->
+	<script src="{% static 'assets/js/SmoothScroll.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/easing.js' %}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	<!-- here stars scroslling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+	<!-- start-smoth-scrolling -->
+	
+<!-- //js-scripts -->
+
 </html>
