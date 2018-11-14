@@ -1,15 +1,12 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
-<div class ="row">
-    
-        <div class="col-md-10 offset-md-3">
-            <div class="col-lg-8">
-                <h3>Articles</h3>
-                <hr>
-                </div>
+<div class="about py-5">
+    <div class="container  py-md-3">
+        <div class="w3-head-all mb-3">
+            <h3>Articles</h3>
         </div>
+    </div>
 </div>
 <div class ="row">
     <div class="col-md-10 offset-md-3">
@@ -21,53 +18,46 @@
             </form>
       </div>
     </div>
-
 </div>
-
-
+<!-- articles -->
 {% if articles %}
-
 {% for article in articles %}
-<div class="row">
-    <div class="col-md-10 offset-md-3">
-
-    <!-- Post Content Column -->
-    <div class="col-lg-8">
-
-      <!-- Title -->
-      <a href="{% url 'article:detail' article.id %}"><h2 class="mt-4">{{article.title}}</h2></a> 
-        
-      <!-- Author -->
-      <p class="lead">
-        
-        Published by  {{article.author.username}} 
-      </p>
-
-      <hr>
-
-      <!-- Date/Time -->
-      <p>{{article.created_date}}</p>
-      <hr>
-      <!-- Preview Image -->
-      {% if article.article_image %}
-      <a href="{% url 'article:detail' article.id %}"><img class="img-fluid rounded" src="{{article.article_image.url}}" alt=""></a>
-      {% endif %}
-     
-
-      <hr>
-
-      <!-- Post Content -->
-      <div class="container">
-        {{article.content|safe|truncatechars:50}}</div>
-      </p>
-
-      <a style ="float : right;" href="{% url 'article:detail' article.id %}" class ="btn btn-danger">Read more</a>
-      <hr>
-         
-        </div>
-      </div>
-      </div>
-
+<div class="about py-5">
+		<div class="container  py-md-3">
+			<div class="agile_about_grids row">
+				<div class="col-md-6 agile_about_grid_left">
+				<!-- <div class="row">
+					<div class="col-md-6 agile_about_grid_left1">
+						<img src="images/ab1.jpg" alt=" " class="img-responsive img-fluid" />
+					</div>
+					<div class="col-md-6 agile_about_grid_left1">
+						<img src="images/ab2.jpg" alt=" " class="img-responsive img-fluid" />
+					</div>
+                    </div> -->
+					<div class="clearfix"> </div>
+                    {% if article.article_image %}
+                        <img class="agile_about_grid_left_img img-responsive img-fluid" src="{{article.article_image.url}}" alt=""/>
+                    {% else %}
+                        <img class="agile_about_grid_left_img img-responsive img-fluid" src="pre.jpg" alt=""/>
+                    {% endif %}
+				</div>
+				<div class="col-md-6 agile_about_grid_right">
+					<h4>
+                        <a href="{% url 'article:detail' article.id %}"><h2 class="mt-4">{{article.title}}</h2></a></h4>
+                    <p class="lead">
+                        Published by  {{article.author.username}} 
+                    </p>
+					<p>
+                        {{article.content|safe|truncatechars:400}}
+                    </p>
+					<div class="about_more">
+						<a href="{% url 'article:detail' article.id %}" class="read" role="button">Read more </a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+    </div>
 {% endfor %}
 
 
@@ -84,6 +74,7 @@
 </div>
 {% endif %}
 
+<!-- //articles -->
 {% endblock body %}
       <p class="lead">
           {{article.content|safe|truncatewords:50}}
