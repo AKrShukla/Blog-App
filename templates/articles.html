@@ -10,54 +10,56 @@
 </div>
 <div class ="row">
     <div class="col-md-10 offset-md-3">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <form>
                  {% csrf_token %} 
-                <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Search...">
-              <button type="submit" class="btn btn-danger">Search</button>
+                <input type="text" name = "keyword" class="input-sm form-control" maxlength="64" placeholder="Search..."/>
+                <span class="input-group-btn"><button type="submit" class="btn btn-danger"><i class="fa fa-search"></i>  Search</button></span>
             </form>
-      </div>
+        </div>
     </div>
 </div>
+<br>
 <!-- articles -->
+<!-- <div class="stats">
+		<div class="container">
+		</div>
+			</div> -->
+    
+<div class="offers py-5">
+<section class="inner-pages py-5">
+        <div class="container py-xl-5 py-sm-3">
+            <div class="row">
 {% if articles %}
 {% for article in articles %}
-<div class="about py-5">
-		<div class="container  py-md-3">
-			<div class="agile_about_grids row">
-				<div class="col-md-6 agile_about_grid_left">
-				<!-- <div class="row">
-					<div class="col-md-6 agile_about_grid_left1">
-						<img src="images/ab1.jpg" alt=" " class="img-responsive img-fluid" />
-					</div>
-					<div class="col-md-6 agile_about_grid_left1">
-						<img src="images/ab2.jpg" alt=" " class="img-responsive img-fluid" />
-					</div>
-                    </div> -->
-					<div class="clearfix"> </div>
-                    {% if article.article_image %}
-                        <img class="agile_about_grid_left_img img-responsive img-fluid" src="{{article.article_image.url}}" alt=""/>
-                    {% else %}
-                        <img class="agile_about_grid_left_img img-responsive img-fluid" src="pre.jpg" alt=""/>
-                    {% endif %}
-				</div>
-				<div class="col-md-6 agile_about_grid_right">
-					<h4>
-                        <a href="{% url 'article:detail' article.id %}"><h2 class="mt-4">{{article.title}}</h2></a></h4>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <a href="{% url 'article:detail' article.id %}" class="img-fluid" title="{{article.title}}">
+                <div class="agile_gallery_grid">
+                        <div class="agile_gallery_grid1">
+                            {% if article.article_image %}
+                                <img class="card-img-top img-fluid bcx" src="{{article.article_image.url}}" alt=""/>
+                            {% else %}
+                                <img class="card-img-top img-fluid bcx" src="pre.jpg" alt="Card image cap"/>
+                            {% endif %}
+                            <!-- <img src="images/g1.jpg" alt=" " class="img-responsive img-fluid" /> -->
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>Published by</h3>
+                                <p>{{article.author.username}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{article.title}}</h5></a>
                     <p class="lead">
-                        Published by  {{article.author.username}} 
+                            Dated  {{article.created_date}} 
                     </p>
-					<p>
-                        {{article.content|safe|truncatechars:400}}
-                    </p>
-					<div class="about_more">
-						<a href="{% url 'article:detail' article.id %}" class="read" role="button">Read more </a>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-    </div>
+                    <!-- <p class="card-text">{{article.content|safe|truncatechars:360}}</p> -->
+                    <a style ="float : right;" href="{% url 'article:detail' article.id %}" class ="btn btn-danger">Read more</a>                
+                </div>
+            </div>
+        </div> 
 {% endfor %}
 
 
@@ -73,6 +75,11 @@
 </div>
 </div>
 {% endif %}
+</div>
+
+</section>
+</div>
+
 
 <!-- //articles -->
 {% endblock body %}

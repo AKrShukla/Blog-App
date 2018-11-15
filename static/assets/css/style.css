@@ -995,10 +995,10 @@ ul.some_agile_facts label {
 /*-- //servicespage--*/
 /*-- gallery --*/
 .w3ls_gallery_grids{
-	padding-top:1em;
+	padding-top:0em;
 }
 .agile_gallery_grid{
-	margin-top:2em;
+	margin-top:0em;
 }
 .agile_gallery_grid1{
     position: relative;
