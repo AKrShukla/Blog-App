@@ -1,21 +1,64 @@
 {% extends "layout.html" %}
+
+{% load static %}
 {% block body %}
 {% load crispy_forms_tags %}
-
-<div class="container ">
-    <div class="container col-md-6 offset-md-3">
-        <div class="jumbotron">
-        <h3>Login</h3>
-        <hr>
-        <form method = "post">
-            {% csrf_token %}
-            
-            {{form|crispy}}
-            <br>
-            <button type = "submit" class = "btn btn-danger">Login</button>
-        </form>
-        </div>
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+<section class="login-block">
+    <div class="container container2">
+	<div class="row">
+		<div class="col-md-4 login-sec">
+		    <h2 class="text-center">Login Now</h2>
+		    <form method="post" class="login-form">
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="form-check">
+                <button type="submit" class="btn btn-login float-right">Submit</button>
+            </div>
+</form>
+		</div>
+		<div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+            <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid drc" src= "{{MEDIA_URL}}ban11.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid drc" src="{{MEDIA_URL}}ban22.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid drc" src="{{MEDIA_URL}}ban33.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>This is Heaven</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+        </div>	
     </div>
   </div>
+            </div>	   
+		    
+		</div>
+	</div>
+</div>
+</div>
+</section>
 
 {% endblock body %}
+
