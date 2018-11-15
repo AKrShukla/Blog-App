@@ -1,8 +1,24 @@
 {% extends "layout.html" %}
-
+{% load static %}
 {% block body %}
 
 {% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+<section class="register-block">
+    <div class="container container2" style="width:65%;">
+	<div class="row">
+        <div class="col-md-8 offset-md-2 register-sec">
+		    <h2 class="text-center">Register a new User</h2>
+		    <form method="post" class="login-form">
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="form-check">
+                <button type="submit" class="btn btn-login float-right">Register</button>
+                <div class="row"></div>
+            </div>
+</form></div></div></section>
+
 
 <div class="row">
     <div class="col-md-6 offset-md-3">
