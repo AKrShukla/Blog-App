@@ -2,40 +2,40 @@
 
 {% block body %}
 <div class="row">
+    <div class="col-lg-10 mx-auto">
+<div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-8">
+    <div class="col-lg-10 mx-auto">
 
       <!-- Title -->
-      <h3 class="mt-4">{{article.title}}</h3>
+          <div class="w3-head-all  py-md-3">
+            <h3 class="text-uppercase mt-4">{{article.title}}</h3>
+              
+      </div>
+      <!-- <h2 class="text-uppercase mt-4">{{article.title}}</h2> -->
 
       <!-- Author -->
-      <p class="lead">
-        
-        Published by {{article.author.username}}
-      </p>
-
-      <hr>
-
-      <!-- Date/Time -->
-      <p>{{article.created_date}}</p>
-
-      <hr>
-
       <!-- Preview Image -->
-      {% if article.article_image %}
-      <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="">
+      <div class="container jumbotron " style="text-align: justify;background-color:#d3cbcb;">
+          <p class="lead">
+              Published by {{article.author.username}}
+              <hr>{{article.created_date}}
+          </p>
+          <hr>
+        {% if article.article_image %}
+      <img class="img-fluid rounded d-block mx-auto" src="{{article.article_image.url}}" alt="">
       {% endif %}
-     
-
-      <hr>
-
+      </div>
       <!-- Post Content -->
+
+      <div class="container jumbotron " style="text-align: justify;background-color:#d3cbcb;">
       <p class="lead">
           {{article.content|safe}}
       </p>
-
-      <hr>
+      </div>
+      <div class="container jumbotron " style="text-align: justify;background-color:#d3cbcb;">
+      <!-- Date/Time -->
 
       <h4>Comments</h4>
       <hr>
@@ -76,9 +76,10 @@
           </div>
         </div>
         </div>
+        </div>
         
       </div>
 
-      
+      </div></div>
 
 {% endblock body %}

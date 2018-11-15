@@ -46,3 +46,124 @@
       
       </footer>
       <!-- Footer -->
+<!-- footer -->
+<section class="agile-footer w3ls-section py-5">
+    <div class="container">
+      <div class="list-footer">
+        <ul class="footer-nav text-center">
+          <li>
+            <a href="{% url 'index'  %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'about'  %}">About</a>
+          </li>
+          <li>
+            <a href="{% url 'article:articles' %}">Articles</a>
+          </li>
+          {% if request.user.is_authenticated %}
+            <li>
+              <a href="{% url 'article:dashboard'  %}">Dashboard</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{% url 'user:register'  %}">Register</a>
+            </li>
+          {% endif %}
+          <li>
+            <a href="% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="agileits_w3layouts-footer-bottom">
+        <div class="row w3_agile-footer-grids py-5 my-4">
+          <div class="col-lg-3 col-sm-12 w3_agile-footer1 f1">
+            <h2 class="mb-3">
+              <a href="{% url 'index'  %}">Success path</a>
+            </h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem atus error sit volupt unde.</p>
+          </div>
+          <div class="col-lg-7 col-sm-12 row w3_agile-footer1 f2">
+            <div class="col-lg-4  col-sm-4 inner-li">
+              <h5 class="mb-3">Social</h5>
+              <ul class="w3ls-footer-bottom-list">
+                <li>
+                  <a class="page-scroll" href="https://www.facebook.com/akshukla007" title="Friend me on Facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook</a>
+                </li>
+                <li>
+                  <a class="page-scroll" href="https://twitter.com/Aag_Shukla" title="Follow me on Twitter">
+                    <i class="fab fa-twitter"></i>  Twitter</a>
+                </li>
+                <li>
+                  <a class="page-scroll" href="https://www.instagram.com/aag_shukla" title="Follow me on Instagram">
+                    <i class="fab fa-instagram"></i>  Instagram</a>
+                </li>
+                <li>
+                  <a class="page-scroll" href="https://plus.google.com/+AnuragKumarShukla" title="Friend me on Google+">
+                    <i class="fab fa-google-plus-g"></i>  Google+</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-sm-4 inner-li">
+              <h5 class="mb-3">Educational</h5>
+              <ul class="w3ls-footer-bottom-list">
+                <li>
+                  <a class="page-scroll" href="https://github.com/AKrShukla" title="Follow me on GitHub">
+                    <i class="fab fa-github"></i> GitHub</a>
+                </li>
+                <li>
+                  <a class="page-scroll"  href="https://www.linkedin.com/in/aag-shukla/" title="Connect to me on LinkedIn">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a class="page-scroll" href="https://curiousforscience.blogspot.com/" title="Friend me on Facebook">
+                    <i class="fab fa-blogger-b"></i>  Blog</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-sm-4 inner-li">
+              <h5 class="mb-3">support</h5>
+              <ul class="w3ls-footer-bottom-list">
+                <li>
+                  <a href="#">24/7 service</a>
+                </li>
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
+                <li>
+                  <a href="#">media</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4  w3_agile-footer1 f3">
+            <h5 class="mb-3">Need Help?</h5>
+            <ul class="footer-social-icons">
+              <li>
+                <a href="contact.html">
+                  Contact us
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Success
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="agileits_w3layouts-copyright text-center">
+        <p>© 2018 Success path. All Rights Reserved | Design by
+          <a href="http://w3layouts.com/" target="=_blank"> W3layouts </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- //footer -->

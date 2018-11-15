@@ -32,12 +32,15 @@
             .navbar-custom {
                 background-color: #006064;
             }
-            .bdy {
+            body {
                 color: #004d40;
             }
             .icon-link {
                 text-decoration: none;
                 color: inherit;
+            }
+            p {
+                color: #004d40;
             }
             .bcx {
                 width : 400px;
@@ -49,7 +52,7 @@
             <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
             <!-- //web-fonts -->
 </head>
-    <body class="bdy">  
+    <body >  
         {% include "includes/navbar.html" %}
         {% if request.path == '/' %}
             <!--Slider-->
