@@ -20,7 +20,6 @@
     </div>
 </div>
 </div>
-<br>
 <!-- articles -->
 <!-- <div class="stats">
 		<div class="container">
@@ -41,7 +40,7 @@
                             {% if article.article_image %}
                                 <img class="card-img-top img-fluid bcx" src="{{article.article_image.url}}" alt=""/>
                             {% else %}
-                                <img class="card-img-top img-fluid bcx" src="pre.jpg" alt="Card image cap"/>
+                                <img class="card-img-top img-fluid bcx" src="{{MEDIA_URL}}typo.jpg" alt="Card image cap"/>
                             {% endif %}
                             <!-- <img src="images/g1.jpg" alt=" " class="img-responsive img-fluid" /> -->
                             <div class="w3layouts_gallery_grid1_pos">

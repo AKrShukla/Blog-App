@@ -1,38 +1,145 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<p>
+
+<div class="about-3 py-5">
+    <div class="container py-md-3">
+    <div class="w3-head-all mb-3">
         {% if request.user.is_authenticated %}
-                Logged in user is, {{request.user.username}}
+            <h3>Welcome {{request.user.username}}</h3>
         {% else %}
-                Not Logged in
+            <h3>Welcome</h3>
         {% endif %}
-
-</p>
-<div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">  
-                {% if articles %}
-                {% for article in articles %}
-                    <div class="col-md-4">
-                      <div class="card mb-4 box-shadow">
-                        {% if article.article_image %}
-                        <a href="{% url 'article:detail' article.id %}">
-                        <img class="img-fluid rounded card-img-top" src="{{article.article_image.url}}"></a>
-                        {% endif %}
-                        <div class="card-body">
-                        <p><a href="{% url 'article:detail' article.id %}"><h4 class="mt-4">{{article.title}}</h4></a></p>
-                        <p class="lead card-text">
-                                <div class="container">
-                                {{article.content|safe|truncatechars:30}}</div>
-                        </p>
-                        <a style ="float : right;" href="{% url 'article:detail' article.id %}" class ="btn btn-danger">Read more</a>  
+        
+            </div>
+        <div class="d-flex">
+            <div class="about1"> 
+                <h4>WE ARE THE LEADERS IN WEB DEVELOPMENT.</h4>
+                <p class="details">Nullam pulvinar vulputate aliquam. Pellentesque venenatis ut mi ac porta. Praesent interdum nibh libero, id malesuada libero aliquet quis. Donec at odio nibh.</p>
+                <ul class="about-list">
+                    <li>
+                        <span class="fas fa-chess-rook" aria-hidden="true"></span>
+                        <div class="in-block">
+                            <h5>Our Mission</h5>
+                            <p>Suspendisse maximus leo vel facilisis porta. Aliquam posuere mollis auctor. Nunc eget massa eleifend, finibus felis eu, tincidunt eros.</p>
                         </div>
-                      </div>
+                    </li>
+                    <li>
+                    <span class="fab fa-accessible-icon" aria-hidden="true"></span>
+                        <div class="in-block">
+                            <h5>Our Activity</h5>
+                            <p>Suspendisse maximus leo vel facilisis porta. Aliquam posuere mollis auctor. Nunc eget massa eleifend, finibus felis eu, tincidunt eros.</p>
+                        </div>
+                    </li>
+                    <li>
+                    <span class="fas fa-bus" aria-hidden="true"></span>
+                        <div class="in-block">
+                            <h5>Our Vission</h5>
+                            <p>Suspendisse maximus leo vel facilisis porta. Aliquam posuere mollis auctor. Nunc eget massa eleifend, finibus felis eu, tincidunt eros.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="about2">
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+<section class="clients-main py-5" id="testimonials">
+    <div class="container py-md-3">
+    <div class="w3-head-all mb-3">
+                <h3>Users Reviews</h3>
+            </div>
+        <!-- Owl-Carousel -->
+        <div class="cli-ent">
+            <section class="slider">
+                <div class="flexslider">
+                    
+                <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-2092px, 0px, 0px);">
+                        <li class="clone" style="width: 1046px; float: left; display: block;">
+                            <div class="item g1">
+                                <div class="agile-dish-caption">
+                                <img class="lazyOwl" src="{{MEDIA_URL}}anurag.jpeg" alt="">
+                                    <h5 class="text-capitalize font-italic">Anurag</h5>
+                                    <h4 class="text-capitalize">Innovative Industrial Solutions</h4>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                <p class="para-w3-agile text-center"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sedminc sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur adipisthn</p>
+                            </div>
+                        </li>
+                        <li style="width: 1046px; float: left; display: block;" class="">
+                            <div class="item g1">
+                                <div class="agile-dish-caption">
+                                <img class="lazyOwl" src="{{MEDIA_URL}}ankit.jpeg" alt="">
+                                    <h5 class="text-capitalize font-italic">Ankit</h5>
+                                    <h4 class="text-capitalize">Great Industrial work</h4>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                <p class="para-w3-agile text-center"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sedminc sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur adipisthn</p>
+                            </div>
+                        </li>
+                    <li style="width: 1046px; float: left; display: block;" class="">
+                            <div class="item g1">
+                                <div class="agile-dish-caption">
+                                <img class="lazyOwl" src="{{MEDIA_URL}}deepa.jpeg" alt="">
+                                    <h5 class="text-capitalize font-italic">Deepanshu</h5>
+                                    <h4 class="text-capitalize">Great Industrial work</h4>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                <p class="para-w3-agile text-center"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sedminc sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur adipisthn</p>
+                            </div>
+                        </li></ul></div>
+                        <ol class="flex-control-nav flex-control-paging">
+                            <li><a class="">1</a></li>
+                            <li><a class="flex-active">2</a></li>
+                            <li><a class="">3</a></li>
+                        </ol>
+                        <ul class="flex-direction-nav">
+                            <li><a class="flex-prev" href="#">Previous</a></li>
+                            <li><a class="flex-next" href="#">Next</a></li>
+                        </ul>
                     </div>
-                    {% endfor %}
-                    {% endif %}
-                </div></div></div>
-
+            </section>
+        </div>
+        <!--// Owl-Carousel -->
+    </div>
+</section>
+<div class="stats">
+		<div class="container">
+		<div class="wthree_head_section stats_head">
+					<h3>We are always ahead 
+Professional Education for Your Future.</h3>
+				</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 
+			w3layouts_stats_left w3_counter_grid">
+				<span class="fas fa-newspaper" aria-hidden="true"></span>
+				<p class="counter">100</p>
+				<h3>ARTICLES</h3>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-6   w3layouts_stats_left w3_counter_grid1">
+				<span class="fas fa-book" aria-hidden="true"></span>
+				<p class="counter">10</p>
+				<h3>REPOSITORIES</h3>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  w3layouts_stats_left w3_counter_grid2">
+				<span class="fab fa-facebook-f" aria-hidden="true"></span>
+				<p class="counter">200</p>
+				<h3>FACEBOOK FRIENDS</h3>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  w3layouts_stats_left w3_counter_grid3">
+				<span class="fab fa-twitter" aria-hidden="true"></span>
+				<p class="counter">100</p>
+				<h3>TWITTER FOLLOWERS</h3>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+			</div>
+	</div>
 {% endblock body %}
 
