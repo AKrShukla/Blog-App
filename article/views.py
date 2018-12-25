@@ -14,12 +14,14 @@ def articles(request):
     articles = Article.objects.all()
 
     return render(request,"articles.html",{"articles":articles})
+
 def index(request):
     articles = Article.objects.all()
     return render(request,"index.html",{"articles":articles})
     
 def about(request):
     return render(request,"about.html")
+
 def contact(request):
     return render(request,"contact.html")
 @login_required(login_url = "user:login")

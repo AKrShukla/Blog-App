@@ -10,7 +10,7 @@
 	<div class="row">
         <div class="col-md-8 offset-md-2 register-sec">
 		    <h2 class="text-center">Register a new User</h2>
-		    <form method="post" class="login-form">
+		    <form method="post" class="login-form center">
                 {% csrf_token %}
                 {{form|crispy}}
                 <div class="form-check">
@@ -19,20 +19,6 @@
             </div>
 </form></div></div></section>
 
-
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h3>Register a new User</h3>
-        <hr>
-        <form method = "post">
-            {% csrf_token %}
-            
-            {{form|crispy}}
-            <br>
-            <button type = "submit" class = "btn btn-danger">Register</button>
-        </form>
-    </div>
-  </div>
 
 {% endblock body %}
 
