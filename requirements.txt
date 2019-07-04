@@ -1,4 +1,4 @@
-django>=2.0.11
+django>=2.0.12
 django-ckeditor==5.4.0
 django-cleanup==2.1.0
 django-crispy-forms==1.7.2
