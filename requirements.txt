@@ -6,10 +6,5 @@ django-js-asset==1.0.0
 dj-database-url==0.4.0
 dj-static==0.0.6
 gunicorn==19.4.5
-Unipath==1.0
-python-decouple==3
-Pillow==3.3.0
-Markdown==2.6.6
-bleach==1.4.3
-psycopg2==2.6.1
 whitenoise==2.0.6
+psycopg2==2.6.1
