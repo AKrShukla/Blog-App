@@ -1,11 +1,11 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from django_prose_editor.fields import ProseEditorField
 # Create your models here.
 
 class Article(models.Model):
     author = models.ForeignKey("auth.User",on_delete = models.CASCADE,verbose_name = "Author ")
     title = models.CharField(max_length = 50,verbose_name = "Title")
-    content = RichTextField()
+    content = ProseEditorField()
     created_date = models.DateTimeField(auto_now_add=True,verbose_name="Date Created")
     article_image = models.FileField(blank = True,null = True,verbose_name="Add Photo to Article")
     def __str__(self):

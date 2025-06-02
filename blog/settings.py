@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "article",
     "user",
     'crispy_forms',
-    "ckeditor",
+    'django_prose_editor',
     'django_cleanup',
 
     
@@ -78,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -133,17 +134,17 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.django.GzipManifestStaticFilesStorage",
+    },
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-CKEDITOR_CONFIGS = {
-    "default": {
-        "removePlugins": "stylesheetparser",
-        "allowedContent" : True,
-        "width" : "100%",
-    }
-}
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
