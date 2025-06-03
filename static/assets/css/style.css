@@ -378,7 +378,7 @@ ul.dropdown-menu a {
 	min-height: 770px;
 }
 .banner{
-	background: url(../images/bann2.jpg) no-repeat 0px 0px;
+	background: no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1250,7 +1250,7 @@ option {
     background: #f36438;
 }
 .w3ls-location {
-    background: url(../images/location.jpg) no-repeat 0px 0px;
+    background: no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

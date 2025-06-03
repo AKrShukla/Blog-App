@@ -13,12 +13,12 @@ def register(request):
     form = RegisterForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data.get("username")
+        email = form.cleaned_data.get("email")
         password = form.cleaned_data.get("password")
 
-        newUser = User(username =username)
-        newUser.set_password(password)
+        newUser = User.objects.create_user(username=username, email=email, password=password)
+        # newUser.save() # create_user already saves the user
 
-        newUser.save()
         login(request,newUser)
         messages.info(request,"You have successfully registered ...")
 

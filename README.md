@@ -1,4 +1,12 @@
+## Project Overview
+This is a Django-based blog application.
 
+**Technology Stack:**
+*   Python: 3.11.9
+*   Django: 5.2.1
+*   Rich Text Editing: django-prose-editor
+
+## Getting Started
 
 Clone This Project (Make Sure You Have Git Installed)
 ```

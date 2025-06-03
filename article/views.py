@@ -52,23 +52,28 @@ def detail(request,id):
     return render(request,"detail.html",{"article":article,"comments":comments})
 @login_required(login_url = "user:login")
 def updateArticle(request,id):
-
     article = get_object_or_404(Article,id = id)
+    if article.author != request.user:
+        messages.error(request, "You are not authorized to update this article.")
+        return redirect("article:articles") # Consistent with test_update_article_page_get_as_non_author
+
     form = ArticleForm(request.POST or None,request.FILES or None,instance = article)
     if form.is_valid():
         article = form.save(commit=False)
-        
-        article.author = request.user
+        # article.author = request.user # Author should not change on update
         article.save()
 
         messages.success(request,"Article updated successfully")
-        return redirect("article:dashboard")
-
+        return redirect("article:dashboard") # Test test_update_article_successful_post expects dashboard
 
     return render(request,"update.html",{"form":form})
+
 @login_required(login_url = "user:login")
 def deleteArticle(request,id):
     article = get_object_or_404(Article,id = id)
+    if article.author != request.user:
+        messages.error(request, "You are not authorized to delete this article.")
+        return redirect("article:dashboard") # Test test_delete_article_by_non_author expects dashboard
 
     article.delete()
 
